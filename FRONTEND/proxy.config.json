@@ -1,0 +1,6 @@
+{
+  "/": {
+    "target": "http://dev.hh.com/",
+    "secure": false
+  }
+}

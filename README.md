@@ -15,7 +15,7 @@
     
 #### Apartir da Pasta FRONTEND execute:
     * npm i
-    * npm start
+    * ng serve
 
 
     Ambos últimos comandos devem ser rodados simultaneamente.
