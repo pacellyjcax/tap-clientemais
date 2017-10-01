@@ -58,6 +58,20 @@ exports.create = function(req, res, next) {
     .catch(validationError(res));
 };
 
+// Updates an existing Permission in the DB
+exports.update = function(req, res) {
+  
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  
+  User.findByIdAsync(req.params.id)
+    .then(handleEntityNotFound(res))
+    .then(saveUpdates(req.body))
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
+
 /**
  * Get a single user
  */
