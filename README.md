@@ -10,7 +10,7 @@
 #### Apartir da Pasta BACKEND execute:
     * npm i -g grunt-cli 
     * npm i
-    * altere o arquivo BACKEND/server/config/local.env.sample.js para BACKEND/server/config/local.env.js, alterando os dados das variáveis para as configurações do seu ambiente.
+    * altere o arquivo BACKEND/server/config/local.env.sample.js para BACKEND/server/config/local.env.js, * Altere os dados das variáveis para as configurações do seu ambiente.
     * grunt serve 
     
 #### Apartir da Pasta FRONTEND execute:

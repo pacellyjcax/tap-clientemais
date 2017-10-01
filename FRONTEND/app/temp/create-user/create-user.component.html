@@ -1,0 +1,6 @@
+<app-header [title]="title"></app-header>
+
+<user-form [user]="user" [validationTrigger]="validationTrigger" (onValidationFinished)="handleValidationResult($event)"></user-form>
+
+<button class="btn btn-success add-button" (click)="addUser()">Add User</button>
+<button class="btn btn-warning back-button" (click)="back()">Back</button>

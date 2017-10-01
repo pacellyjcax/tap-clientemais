@@ -1,0 +1,62 @@
+<div class="form-group row">
+	<label for="example-text-input" class="col-2 col-form-label">First Name</label>
+	<div class="col-10">
+		<input 	class="form-control"
+				type="text"
+				[(ngModel)]="user.firstName"
+		>
+		<div class="validation-error">
+			{{ firstNameValidationErrorMessage }}
+		</div>
+	</div>
+</div>
+	<div class="form-group row">
+	<label for="example-search-input" class="col-2 col-form-label">Last Name</label>
+	<div class="col-10">
+		<input 	class="form-control"
+				type="text"
+				[(ngModel)]="user.lastName"
+		>
+		<div class="validation-error">
+			{{ lastNameValidationErrorMessage }}
+		</div>
+	</div>
+</div>
+<div class="form-group row">
+	<label for="example-email-input" class="col-2 col-form-label">Date Of Birth</label>
+	<div class="col-10">
+		<input 	class="form-control"
+				type="date"
+				[ngModel]="dateOfBirth | date:'yyyy-MM-dd'"
+				(ngModelChange)="dateOfBirth = $event"
+		>
+		<div class="validation-error">
+			{{ dateOfBirthValidationErrorMessage }}
+		</div>
+	</div>
+</div>
+<div class="form-group row">
+	<label for="example-email-input" class="col-2 col-form-label">Address</label>
+	<div class="col-10">
+		<input 	class="form-control"
+				type="text"
+				[(ngModel)]="user.address"
+		>
+		<div class="validation-error">
+			{{ addressValidationErrorMessage }}
+		</div>
+	</div>
+</div>
+<div class="form-group row">
+	<label for="example-url-input" class="col-2 col-form-label">Date Of Hire</label>
+	<div class="col-10">
+		<input 	class="form-control"
+				type="date"
+				[ngModel]="dateOfHire | date:'yyyy-MM-dd'"
+				(ngModelChange)="dateOfHire = $event"
+		>
+		<div class="validation-error">
+			{{ dateOfHireValidationErrorMessage }}
+		</div>
+	</div>
+</div>

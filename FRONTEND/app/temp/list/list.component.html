@@ -1,0 +1,14 @@
+<div class="app-header">
+	<h2>
+		List of Users
+	</h2>
+</div>
+
+<button class="btn btn-success new-user-button" (click)="addNewUser()">
+	<span>
+		<i class="fa fa-plus"></i>
+		Add New User
+	</span>
+</button>
+
+<users-list [users]="users" (editUser)="handleEditUser($event)" (deleteUser)="handleDeleteUser($event)"></users-list>

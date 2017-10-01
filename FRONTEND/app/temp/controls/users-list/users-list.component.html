@@ -1,0 +1,30 @@
+<table class="table table-striped table-bordered">
+	<thead class="thead-inverse">
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Age</th>
+			<th>Experience</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of users">
+			<td>{{ user.firstName }}</td>
+			<td>{{ user.lastName }}</td>
+			<td>{{ user.age }}</td>
+			<td>{{ user.experience }}</td>
+			<td>
+				<div class="btn-group">
+					<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Action
+					</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="javascript: void(0);" (click)="onEditUserPressed(user.userId)"><i class="fa fa-edit"></i> Edit User</a>
+						<a class="dropdown-item" href="javascript: void(0);" (click)="onDeleteUserPressed(user.userId)"><i class="fa fa-remove"></i> Delete User</a>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>

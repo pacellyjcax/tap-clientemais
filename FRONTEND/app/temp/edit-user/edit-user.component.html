@@ -1,0 +1,8 @@
+<app-header [title]="title"></app-header>
+
+
+<div *ngIf="user">
+	<user-form [user]="user" [validationTrigger]="validationTrigger" (onValidationFinished)="handleValidationResult($event)"></user-form>
+
+	<button type="button" class="btn btn-success save-button" (click)="saveUser()">Save</button>
+</div>
