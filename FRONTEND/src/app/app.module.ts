@@ -16,6 +16,11 @@ import { UsersListComponent } from './controls/users-list/users-list.component';
 
 import { UserService } from './services/user.service';
 import { AuthenticationService } from './services/authentication.service';
+import { ClientComponent } from './client/client.component';
+import { CreateClientComponent } from './create-client/create-client.component';
+import { EditClientComponent } from './edit-client/edit-client.component';
+import { ClientFormComponent } from './controls/client-form/client-form.component';
+import { ClientListComponent } from './controls/client-list/client-list.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +31,12 @@ import { AuthenticationService } from './services/authentication.service';
         AppHeaderComponent,
         UserFormComponent,
         UsersListComponent,
-        LoginComponent
+        LoginComponent,
+        ClientComponent,
+        CreateClientComponent,
+        EditClientComponent,
+        ClientFormComponent,
+        ClientListComponent
     ],
     imports: [
         BrowserModule,

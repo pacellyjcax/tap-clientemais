@@ -17,22 +17,12 @@ export class UserFormComponent implements OnInit {
     @Input() validationTrigger: boolean = false;
     @Output() onValidationFinished: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    public firstNameValidationErrorMessage: string = "";
-    public lastNameValidationErrorMessage: string = "";
-    public addressValidationErrorMessage: string = "";
-    public dateOfBirthValidationErrorMessage: string = "";
-    public dateOfHireValidationErrorMessage: string = "";
+    public nameValidationErrorMessage: string = "";
+    public emailValidationErrorMessage: string = "";
+    public roleValidationErrorMessage: string = "";
 
-    public dateOfBirth: Date;
-    public dateOfHire: Date;
 
     ngOnInit() {
-    	if (this.user.dateOfBirth.length) {
-    		this.dateOfBirth = new Date(this.user.dateOfBirth);
-    	}
-    	if (this.user.dateOfHire.length) {
-    		this.dateOfHire = new Date(this.user.dateOfHire);
-    	}
     }
 
     ngOnChanges(changes: SimpleChange )  {
@@ -45,58 +35,35 @@ export class UserFormComponent implements OnInit {
 		this.clearMessages();
 
 		let isValid = true;
-		if (!this.user.firstName.length) {
+		if (!this.user.name.length) {
 			isValid = false;
-			this.firstNameValidationErrorMessage = "First Name should contain at least 1 character";
-		} else if (this.user.firstName.length > 50) {
+			this.nameValidationErrorMessage = "Name should contain at least 1 character";
+		} else if (this.user.firstName.length > 100) {
 			isValid = false;
-			this.firstNameValidationErrorMessage = "First Name should not be more than 50 characters";
+			this.nameValidationErrorMessage = "Name should not be more than 100 characters";
 		}
 
-		if (!this.user.lastName.length) {
+		if (!this.user.email.length) {
 			isValid = false;
-			this.lastNameValidationErrorMessage = "Last Name should contain at least 1 character";
+			this.emailValidationErrorMessage = "Email should contain at least 1 character";
 		} else if (this.user.lastName.length > 50) {
 			isValid = false;
-			this.lastNameValidationErrorMessage = "Last Name should not be more than 50 characters";
+			this.emailValidationErrorMessage = "Email should not be more than 50 characters";
 		}
 
-		if (!this.user.address.length) {
+		if (!this.user.role.length) {
 			isValid = false;
-			this.addressValidationErrorMessage = "Address should contain at least 1 character";
-		} else if (this.user.lastName.length > 100) {
+			this.roleValidationErrorMessage = "Role should contain at least 1 character";
+		} else if (this.user.role.length > 50) {
 			isValid = false;
-			this.addressValidationErrorMessage = "Last Name should not be more than 100 characters";
-		}
-
-		if (this.dateOfBirth == undefined) {
-			this.dateOfBirthValidationErrorMessage = "Date of birth is not a valid date";
-		} else if (new Date(this.dateOfBirth).getTime() > Date.now()) {
-			this.dateOfBirthValidationErrorMessage = "Date of birth cannot be more then the current date";
-			isValid = false;
-		}
-
-		if (this.dateOfHire == undefined) {
-			this.dateOfHireValidationErrorMessage = "Date of hire is not a valid date";
-		} else if (new Date(this.dateOfHire).getTime() > Date.now()) {
-			this.dateOfHireValidationErrorMessage = "Date of hire cannot be less then the current date";
-			isValid = false;
-		}
-
-		if (isValid) {
-			this.user.dateOfBirth = this.datePipe.transform(this.dateOfBirth, "yyyy-MM-dd");
-			this.user.dateOfHire = this.datePipe.transform(this.dateOfHire, "yyyy-MM-dd");
-			this.onValidationFinished.emit(true);
-		} else {
-			this.onValidationFinished.emit(false);
+			this.roleValidationErrorMessage = "Role should not be more than 50 characters";
 		}
 	}
 
 	private clearMessages = () => {
-		this.firstNameValidationErrorMessage = "";
-    	this.lastNameValidationErrorMessage = "";
-    	this.dateOfBirthValidationErrorMessage = "";
-    	this.dateOfHireValidationErrorMessage = "";
+    	this.nameValidationErrorMessage = "";
+    	this.emailValidationErrorMessage = "";
+    	this.roleValidationErrorMessage = "";
 	}
 
 }

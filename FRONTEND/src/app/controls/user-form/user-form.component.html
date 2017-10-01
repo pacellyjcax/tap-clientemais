@@ -3,60 +3,34 @@
 	<div class="col-10">
 		<input 	class="form-control"
 				type="text"
-				[(ngModel)]="user.firstName"
+				[(ngModel)]="user.name"
 		>
 		<div class="validation-error">
-			{{ firstNameValidationErrorMessage }}
+			{{ nameValidationErrorMessage }}
 		</div>
 	</div>
 </div>
-	<div class="form-group row">
-	<label for="example-search-input" class="col-2 col-form-label">Last Name</label>
+<div class="form-group row">
+	<label for="example-search-input" class="col-2 col-form-label">E-mail</label>
+	<div class="col-10">
+		<input 	class="form-control"
+				type="email"
+				[(ngModel)]="user.email"
+		>
+		<div class="validation-error">
+			{{ emailValidationErrorMessage }}
+		</div>
+	</div>
+</div>
+<div class="form-group row">
+	<label for="example-email-input" class="col-2 col-form-label">Role</label>
 	<div class="col-10">
 		<input 	class="form-control"
 				type="text"
-				[(ngModel)]="user.lastName"
+				[ngModel]="user.role"	
 		>
 		<div class="validation-error">
-			{{ lastNameValidationErrorMessage }}
-		</div>
-	</div>
-</div>
-<div class="form-group row">
-	<label for="example-email-input" class="col-2 col-form-label">Date Of Birth</label>
-	<div class="col-10">
-		<input 	class="form-control"
-				type="date"
-				[ngModel]="dateOfBirth | date:'yyyy-MM-dd'"
-				(ngModelChange)="dateOfBirth = $event"
-		>
-		<div class="validation-error">
-			{{ dateOfBirthValidationErrorMessage }}
-		</div>
-	</div>
-</div>
-<div class="form-group row">
-	<label for="example-email-input" class="col-2 col-form-label">Address</label>
-	<div class="col-10">
-		<input 	class="form-control"
-				type="text"
-				[(ngModel)]="user.address"
-		>
-		<div class="validation-error">
-			{{ addressValidationErrorMessage }}
-		</div>
-	</div>
-</div>
-<div class="form-group row">
-	<label for="example-url-input" class="col-2 col-form-label">Date Of Hire</label>
-	<div class="col-10">
-		<input 	class="form-control"
-				type="date"
-				[ngModel]="dateOfHire | date:'yyyy-MM-dd'"
-				(ngModelChange)="dateOfHire = $event"
-		>
-		<div class="validation-error">
-			{{ dateOfHireValidationErrorMessage }}
+			{{ roleValidationErrorMessage }}
 		</div>
 	</div>
 </div>
