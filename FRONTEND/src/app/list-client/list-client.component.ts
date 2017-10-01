@@ -31,14 +31,14 @@ export class ListClientComponent implements OnInit {
     	this.router.navigate(['/edit-user', userId])
     }
 
-    public handleClientUser = (userId: number) => {
+    public handleClientDelete = (userId: number) => {
     	this.clientService.deleteClient(userId)
     	.then((result: any) => {
     		this.getUsers();
     	})
     }
 
-    public handleClientUser = () => {
+    public handleClientEdit = () => {
     	this.router.navigate(['/create-user'])
     }
 
