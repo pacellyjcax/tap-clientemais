@@ -34,6 +34,32 @@ const users = [
         name: 'Deletar Usuário'
       }
     ]
+  },
+  {
+    provider: 'local',
+    role: 'administrador',
+    name: 'admin',
+    email: 'admin@admin.com',
+    password: 'admin',
+    permissions: [
+      {
+        name: 'Página Inicial'
+      },{
+        name: 'Alterar Senha Pessoal'
+      },{
+        name: 'Listar Permissões'
+      },{
+        name: 'Cadastrar Permissão'
+      },{
+        name: 'Listar Usuários'
+      },{
+        name: 'Cadastrar Usuário'
+      },{
+        name: 'Editar Usuário'
+      },{
+        name: 'Deletar Usuário'
+      }
+    ]
   },{
     provider: 'local',
     role: 'usuario',

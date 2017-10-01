@@ -59,6 +59,26 @@ exports.create = function(req, res, next) {
 };
 
 /**
+ * Update a user
+ */
+// exports.create = function(req, res, next) {
+  
+//   var newUser = new User(req.body);
+//   newUser.provider = 'local';
+//   newUser.role = 'user';
+//   newUser.saveAsync()
+//     .spread(function(user) {
+      
+//       var token = jwt.sign({ _id: user._id }, config.secrets.session, {
+//         expiresIn: 60 * 60 * 5
+//       });
+      
+//       res.json({ token: token });
+//     })
+//     .catch(validationError(res));
+// };
+
+/**
  * Get a single user
  */
 exports.show = function(req, res, next) {

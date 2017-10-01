@@ -9,13 +9,14 @@ import { User } from '../models/User';
 export class UserService {
  
   private headers = new Headers({'Content-Type': 'application/json'});
-  private url = '/api';  // /api
+  private url = '/api/users';  // /api
+
  
   constructor(private http: Http) { }
  
 	getUsers(): Promise<User[]> {
 		return this.http
-		.get(this.url + '/get.php?m=getUsers')
+		.get(this.url + '/list')
 		.toPromise()
 		.then(response => response.json().data.map(User.build) as User[])
 		.catch(this.handleError);
@@ -23,7 +24,7 @@ export class UserService {
 
 	getUser(userId: number): Promise<User> {
 		return this.http
-		.get(this.url + '/get.php?m=getUsers&ui=' + userId)
+		.get(this.url + '/' + userId)
 		.toPromise()
 		.then((response) => {
 			return response.json().data.map(User.build)[0] as User;
@@ -33,7 +34,7 @@ export class UserService {
 
 	deleteUser(userId: number): Promise<any> {
 		return this.http
-		.get(this.url + '/get.php?m=deleteUser&ui=' + userId)
+		.get(this.url + '/' + userId)
 		.toPromise()
 		.then((response: Response) => {
 			let result = response.json();
@@ -55,7 +56,7 @@ export class UserService {
 	 let data = 'data=' + JSON.stringify(body);
 
 	 return this.http
-	  .post(this.url + '/post.php', data, {headers: headers})
+	  .post(this.url + '/', data, {headers: headers})
 	  .toPromise()
 	  .then((response: Response) => {
 	  	let result = response.json();
