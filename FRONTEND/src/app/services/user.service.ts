@@ -1,33 +1,36 @@
+import { AuthenticationService } from './authentication.service';
 import { Injectable }    from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
- 
 import 'rxjs/add/operator/toPromise';
  
 import { User } from '../models/User';
  
 @Injectable()
 export class UserService {
- 
-  private headers = new Headers({'Content-Type': 'application/json'});
-  private url = '/api/users';  // /api
+  	
+  private url = 'http://localhost:9000/api/users';  // /api
+  
 
  
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+   }
  
 	getUsers(): Promise<User[]> {
+
+		let headers = new Headers({'Content-Type': 'application/json','Authorization':'Bearer '+localStorage.getItem('token')});
 		return this.http
-		.get(this.url + '/list')
+		.get(this.url,{headers: headers})
 		.toPromise()
-		.then(response => response.json().data.map(User.build) as User[])
+		.then(response => response.json() as User[])
 		.catch(this.handleError);
 	}
 
-	getUser(userId: number): Promise<User> {
+	getUser(userId: string): Promise<User> {
 		return this.http
 		.get(this.url + '/' + userId)
 		.toPromise()
 		.then((response) => {
-			return response.json().data.map(User.build)[0] as User;
+			return response.json() as User;
 		})
 		.catch(this.handleError);
 	}

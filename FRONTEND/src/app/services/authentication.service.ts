@@ -9,7 +9,7 @@ export class AuthenticationService {
 
     constructor(private http: Http) {
         // set token if saved in local storage
-        var currentToken = JSON.parse(localStorage.getItem('token'));
+        var currentToken = localStorage.getItem('token');
         this.token = currentToken;
     }
 
@@ -23,7 +23,7 @@ export class AuthenticationService {
                     this.token = token;
 
                     // store username and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('token', JSON.stringify(token));
+                    localStorage.setItem('token', token);
 
                     // return true to indicate successful login
                     return true;
@@ -38,5 +38,9 @@ export class AuthenticationService {
         // clear token remove user from local storage to log user out
         this.token = null;
         localStorage.removeItem('token');
+    }
+
+    getToken(): string {
+        return localStorage.get('token');
     }
 }

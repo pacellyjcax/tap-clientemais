@@ -7,6 +7,7 @@
 
 import User from '../api/user/user.model';
 import Permission from '../api/permission/permission.model';
+import Cliente from '../api/cliente/cliente.model';
 
 const users = [
   {
@@ -15,32 +16,6 @@ const users = [
     name: 'Pacelly JCAX',
     email: 'p@p',
     password: '123',
-    permissions: [
-      {
-        name: 'Página Inicial'
-      },{
-        name: 'Alterar Senha Pessoal'
-      },{
-        name: 'Listar Permissões'
-      },{
-        name: 'Cadastrar Permissão'
-      },{
-        name: 'Listar Usuários'
-      },{
-        name: 'Cadastrar Usuário'
-      },{
-        name: 'Editar Usuário'
-      },{
-        name: 'Deletar Usuário'
-      }
-    ]
-  },
-  {
-    provider: 'local',
-    role: 'administrador',
-    name: 'admin',
-    email: 'admin@admin.com',
-    password: 'admin',
     permissions: [
       {
         name: 'Página Inicial'
@@ -94,31 +69,34 @@ const permissions = [
     name: 'Deletar Permissão'
   },{
     name: 'Editar Permissão'
-  },{
-    name:'Deletar Assunto',
-  },{
-    name:'Cadastrar Assunto',
-  },{
-    name:'Editar Assunto',
-  },{
-    name:'Listar Assuntos'
-  },{
-    name:'Deletar Disciplina',
-  },{
-    name:'Cadastrar Disciplina',
-  },{
-    name:'Editar Disciplina',
-  },{
-    name:'Listar Disciplinas'
-  },{
-    name:'Deletar Questão',
-  },{
-    name:'Cadastrar Questão',
-  },{
-    name:'Editar Questão',
-  },{
-    name:'Listar Questões'
   }
+];
+const clientes = [
+  {
+    name: 'Coca Cola Inc.',
+    email: 'cc@coca.com',
+    phoneNumber: '1 888 8888 8888'
+  },{
+    name: 'Coca Cola Inc.',
+    email: 'cc@coca.com',
+    phoneNumber: '1 888 8888 8888'
+  },{
+    name: 'Coca Cola Inc.',
+    email: 'cc@coca.com',
+    phoneNumber: '1 888 8888 8888'
+  },{
+    name: 'Coca Cola Inc.',
+    email: 'cc@coca.com',
+    phoneNumber: '1 888 8888 8888'
+  },{
+    name: 'Coca Cola Inc.',
+    email: 'cc@coca.com',
+    phoneNumber: '1 888 8888 8888'
+  },{
+    name: 'Coca Cola Inc.',
+    email: 'cc@coca.com',
+    phoneNumber: '1 888 8888 8888'
+  },
 ];
 
 let popularUsuarios = (users) => {
@@ -130,6 +108,7 @@ let popularUsuarios = (users) => {
       });
     });
 }
+
 let popularPermissoes = (permissions) => {
   Permission.find({}).removeAsync()
     .then(function() {
@@ -140,5 +119,16 @@ let popularPermissoes = (permissions) => {
     });
 }
 
+let popularClientes = (clientes) => {
+  Cliente.find({}).removeAsync()
+    .then(function() {
+      Cliente.createAsync(clientes)
+      .then(function() {
+        console.log('finished populating Clientes');
+      });
+    });
+}
+
 popularUsuarios(users);
 popularPermissoes(permissions);
+popularClientes(clientes);

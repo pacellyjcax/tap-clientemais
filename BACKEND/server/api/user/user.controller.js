@@ -58,25 +58,19 @@ exports.create = function(req, res, next) {
     .catch(validationError(res));
 };
 
-/**
- * Update a user
- */
-// exports.create = function(req, res, next) {
+// Updates an existing Permission in the DB
+exports.update = function(req, res) {
   
-//   var newUser = new User(req.body);
-//   newUser.provider = 'local';
-//   newUser.role = 'user';
-//   newUser.saveAsync()
-//     .spread(function(user) {
-      
-//       var token = jwt.sign({ _id: user._id }, config.secrets.session, {
-//         expiresIn: 60 * 60 * 5
-//       });
-      
-//       res.json({ token: token });
-//     })
-//     .catch(validationError(res));
-// };
+  if (req.body._id) {
+    delete req.body._id;
+  }
+  
+  User.findByIdAsync(req.params.id)
+    .then(handleEntityNotFound(res))
+    .then(saveUpdates(req.body))
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
 
 /**
  * Get a single user
