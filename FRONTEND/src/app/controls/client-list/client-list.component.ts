@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Client } from 'app/models/Client';
 
 @Component({
   selector: 'app-client-list',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
-  ngOnInit() {
+  @Input() clients: Client[];
+  @Output() editUser: EventEmitter<number>= new EventEmitter<number>();
+  @Output() deleteUser: EventEmitter<number>= new EventEmitter<number>();
+
+  ngOnInit() 
+  {}
+
+  public onEditClientPressed(clientId: number) {
+    this.editUser.emit(clientId)
   }
 
+  public onDeleteClientPressed(clientId: number) {
+    this.deleteUser.emit(clientId)
+  }
+  
 }

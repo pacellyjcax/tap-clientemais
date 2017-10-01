@@ -4,6 +4,6 @@ export class Client {
         public clientId : number = -1,
         public name : string = '',
         public email: string = '',
-        public foneNumber : string = ''
+        public phoneNumber : string = ''
     ){}
 }

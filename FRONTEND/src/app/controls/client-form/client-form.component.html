@@ -1,3 +1,36 @@
-<p>
-  client-form works!
-</p>
+<div class="form-group row">
+	<label for="example-text-input" class="col-2 col-form-label">Name</label>
+	<div class="col-10">
+		<input 	class="form-control"
+				type="text"
+				[(ngModel)]="client.name"
+		>
+		<div class="validation-error">
+			{{ nameValidationErrorMessage }}
+		</div>
+	</div>
+</div>
+<div class="form-group row">
+	<label for="example-search-input" class="col-2 col-form-label">E-mail</label>
+	<div class="col-10">
+		<input 	class="form-control"
+				type="email"
+				[(ngModel)]="client.email"
+		>
+		<div class="validation-error">
+			{{ emailValidationErrorMessage }}
+		</div>
+	</div>
+</div>
+<div class="form-group row">
+	<label for="example-email-input" class="col-2 col-form-label">Phone Number</label>
+	<div class="col-10">
+		<input 	class="form-control"
+				type="text"
+				[ngModel]="client.role"	
+		>
+		<div class="validation-error">
+			{{ phoneNumberValidationErrorMessage }}
+		</div>
+	</div>
+</div>

@@ -38,7 +38,7 @@ export class UserFormComponent implements OnInit {
 		if (!this.user.name.length) {
 			isValid = false;
 			this.nameValidationErrorMessage = "Name should contain at least 1 character";
-		} else if (this.user.firstName.length > 100) {
+		} else if (this.user.name.length > 100) {
 			isValid = false;
 			this.nameValidationErrorMessage = "Name should not be more than 100 characters";
 		}
@@ -46,7 +46,7 @@ export class UserFormComponent implements OnInit {
 		if (!this.user.email.length) {
 			isValid = false;
 			this.emailValidationErrorMessage = "Email should contain at least 1 character";
-		} else if (this.user.lastName.length > 50) {
+		} else if (this.user.email.length > 50) {
 			isValid = false;
 			this.emailValidationErrorMessage = "Email should not be more than 50 characters";
 		}

@@ -1,7 +1,7 @@
 import { Client } from './../models/Client';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {  } from '../services/client.service';
+import { ClientService } from '../services/client.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import {  } from '../services/client.service';
 })
 export class ListClientComponent implements OnInit {
 
-	public client: Client[] = null;
+	public clients: Client[] = null;
 
 	public selectedClient: Client;
 
@@ -21,9 +21,9 @@ export class ListClientComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-    	this.userService.getUsers()
-    	.then((users: User[]) => {
-    		this.users = users;
+    	this.clientService.getClients()
+    	.then((clients: Client[]) => {
+    		this.clients = clients;
     	});
     }
 
@@ -31,21 +31,21 @@ export class ListClientComponent implements OnInit {
     	this.router.navigate(['/edit-user', userId])
     }
 
-    public handleDeleteUser = (userId: number) => {
-    	this.userService.deleteUser(userId)
+    public handleClientUser = (userId: number) => {
+    	this.clientService.deleteClient(userId)
     	.then((result: any) => {
     		this.getUsers();
     	})
     }
 
-    public addNewUser = () => {
+    public handleClientUser = () => {
     	this.router.navigate(['/create-user'])
     }
 
     private getUsers = (): void => {
-    	this.userService.getUsers()
-    	.then((users: User[]) => {
-    		this.users = users;
+    	this.clientService.getClients()
+    	.then((clients: Client[]) => {
+    		this.clients = clients;
     	});
     }
 
