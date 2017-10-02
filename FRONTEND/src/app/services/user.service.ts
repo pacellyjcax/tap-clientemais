@@ -25,9 +25,9 @@ export class UserService {
 		.catch(this.handleError);
 	}
 
-	getUser(userId: string): Promise<User> {
+	getUser(_id: string): Promise<User> {
 		return this.http
-		.get(this.url + '/' + userId)
+		.get(this.url + '/' + _id)
 		.toPromise()
 		.then((response) => {
 			return response.json() as User;
@@ -35,17 +35,25 @@ export class UserService {
 		.catch(this.handleError);
 	}
 
-	deleteUser(userId: number): Promise<any> {
+	getUserProfile(): Promise<User> {
+		let headers = new Headers({'Content-Type': 'application/json','Authorization':'Bearer '+localStorage.getItem('token')});		
 		return this.http
-		.get(this.url + '/' + userId)
+		.get(this.url + '/me', {headers: headers})
+		.toPromise()
+		.then((response) => {
+			return response.json() as User;
+		})
+		.catch(this.handleError);
+	}
+
+	deleteUser(_id: string): Promise<any> {
+		let headers = new Headers({'Content-Type': 'application/json','Authorization':'Bearer '+localStorage.getItem('token')});		
+		return this.http
+		.delete(this.url + '/' + _id)
 		.toPromise()
 		.then((response: Response) => {
-			let result = response.json();
-		  	if (!!result['isSuccess']) {
-		  		return Promise.resolve(result['data']);
-		  	} else {
-		  		return Promise.reject(result)
-		  	}
+			console.log( response.json());
+		  	
 		})
 		.catch(this.handleError)
 	}

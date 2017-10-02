@@ -18,12 +18,12 @@ export class ClientListComponent implements OnInit {
   ngOnInit() 
   {}
 
-  public onEditClientPressed(clientId: number) {
-    this.editUser.emit(clientId)
+  public onEditClientPressed(_id: number) {
+    this.editUser.emit(_id)
   }
 
-  public onDeleteClientPressed(clientId: number) {
-    this.deleteUser.emit(clientId)
+  public onDeleteClientPressed(_id: number) {
+    this.deleteUser.emit(_id)
   }
   
 }

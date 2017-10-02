@@ -19,12 +19,12 @@ export class UsersListComponent implements OnInit {
 
     }
 
-    public onEditUserPressed(userId: number) {
-    	this.editUser.emit(userId)
+    public onEditUserPressed(_id: number) {
+    	this.editUser.emit(_id)
     }
 
-    public onDeleteUserPressed(userId: number) {
-    	this.deleteUser.emit(userId)
+    public onDeleteUserPressed(_id: number) {
+    	this.deleteUser.emit(_id)
     }
 
 }

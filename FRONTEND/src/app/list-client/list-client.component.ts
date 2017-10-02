@@ -1,7 +1,7 @@
 import { Client } from './../models/Client';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClientService } from '../services/client.service';
+import { ClientService } from './../services/client.service';
 
 
 @Component({
@@ -27,14 +27,14 @@ export class ListClientComponent implements OnInit {
     	});
     }
 
-    public handleEditUser = (userId: number) => {
-    	this.router.navigate(['/edit-user', userId])
+    public handleEditClient = (_id: number) => {
+    	this.router.navigate(['/edit-client', _id])
     }
 
-    public handleClientDelete = (userId: number) => {
-    	this.clientService.deleteClient(userId)
+    public handleClientDelete = (_id: number) => {
+    	this.clientService.deleteClient(_id)
     	.then((result: any) => {
-    		this.getUsers();
+    		this.getClients();
     	})
     }
 
@@ -42,7 +42,7 @@ export class ListClientComponent implements OnInit {
     	this.router.navigate(['/create-user'])
     }
 
-    private getUsers = (): void => {
+    private getClients = (): void => {
     	this.clientService.getClients()
     	.then((clients: Client[]) => {
     		this.clients = clients;

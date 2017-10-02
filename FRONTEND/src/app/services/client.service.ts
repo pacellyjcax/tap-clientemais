@@ -20,9 +20,9 @@ export class ClientService {
 		.catch(this.handleError);
 	}
 
-	getClient(clientId: number): Promise<Client> {
+	getClient(_id: number): Promise<Client> {
 		return this.http
-		.get(this.url + '/get.php?m=getUsers&ui=' + clientId)
+		.get(this.url + '/get.php?m=getUsers&ui=' + _id)
 		.toPromise()
 		.then((response) => {
 			return response.json()  as Client;
@@ -30,9 +30,9 @@ export class ClientService {
 		.catch(this.handleError);
 	}
 
-	deleteClient(clientId: number): Promise<any> {
+	deleteClient(_id: number): Promise<any> {
 		return this.http
-		.get(this.url + '/get.php?m=deleteUser&ui=' + clientId)
+		.get(this.url + '/get.php?m=deleteUser&ui=' + _id)
 		.toPromise()
 		.then((response: Response) => {
 			let result = response.json();

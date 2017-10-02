@@ -1,3 +1,4 @@
+import { ListClientComponent } from './list-client/list-client.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,8 +12,9 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
 	{ path: 'login',  component: LoginComponent },
+	{ path: 'clientes',  component: ListClientComponent },	
 	{ path: 'list',  component: ListComponent },
-	{ path: 'edit-user/:userId', component: EditUserComponent, canActivate: [AuthGuard] },
+	{ path: 'edit-user/:_id', component: EditUserComponent, canActivate: [AuthGuard] },
 	{ path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard] },
 	{ path: '*', redirectTo: '/list', pathMatch: 'full', canActivate: [AuthGuard] }
 ];

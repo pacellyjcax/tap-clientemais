@@ -76,9 +76,9 @@ exports.update = function(req, res) {
  * Get a single user
  */
 exports.show = function(req, res, next) {
-  var userId = req.params.id;
+  var _id = req.params.id;
 
-  User.findByIdAsync(userId)
+  User.findByIdAsync(_id)
     .then(function(user) {
       if (!user) {
         return res.status(404).end();
@@ -106,12 +106,12 @@ exports.destroy = function(req, res) {
  * Change a users password
  */
 exports.changePassword = function(req, res, next) {
-   var userId = req.user._id; 
+   var _id = req.user._id; 
   
   var oldPass = String(req.body.oldPassword);
   var newPass = String(req.body.newPassword);
 
-  User.findByIdAsync(userId)
+  User.findByIdAsync(_id)
     .then(function(user) {
       if (user.authenticate(oldPass)) {
         user.password = newPass;
@@ -130,9 +130,9 @@ exports.changePassword = function(req, res, next) {
  * Get my info
  */
 exports.me = function(req, res, next) {
-  var userId = req.user._id;
+  var _id = req.user._id;
 
-  User.findOneAsync({ _id: userId }, '-salt -hashedPassword')
+  User.findOneAsync({ _id: _id }, '-salt -hashedPassword')
     .then(function(user) { // don't ever give out the password or salt
       if (!user) {
         return res.status(401).end();

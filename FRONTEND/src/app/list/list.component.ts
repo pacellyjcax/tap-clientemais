@@ -22,16 +22,17 @@ export class ListComponent implements OnInit {
     ngOnInit() {
     	this.userService.getUsers()
     	.then((users: User[]) => {
+			console.log(users);
     		this.users = users;
     	});
     }
 
-    public handleEditUser = (userId: number) => {
-    	this.router.navigate(['/edit-user', userId])
+    public handleEditUser = (_id: string) => {
+    	this.router.navigate(['/edit-user', _id])
     }
 
-    public handleDeleteUser = (userId: number) => {
-    	this.userService.deleteUser(userId)
+    public handleDeleteUser = (_id: string) => {
+    	this.userService.deleteUser(_id)
     	.then((result: any) => {
     		this.getUsers();
     	})
@@ -43,7 +44,7 @@ export class ListComponent implements OnInit {
 
     private getUsers = (): void => {
     	this.userService.getUsers()
-    	.then((users: User[]) => {
+    	.then((users: User[]) => {			
     		this.users = users;
     	});
     }

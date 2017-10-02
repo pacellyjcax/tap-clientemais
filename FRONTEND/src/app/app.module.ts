@@ -7,6 +7,7 @@ import { DatePipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
+import { ListClientComponent } from './list-client/list-client.component';
 import { LoginComponent } from './login/login.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { CreateUserComponent } from './create-user/create-user.component';
@@ -27,6 +28,7 @@ import { ClientListComponent } from './controls/client-list/client-list.componen
         ListComponent,
         EditUserComponent,
         CreateUserComponent,
+        ListClientComponent,
         AppHeaderComponent,
         UserFormComponent,
         UsersListComponent,
