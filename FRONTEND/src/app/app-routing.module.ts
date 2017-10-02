@@ -15,7 +15,7 @@ const routes: Routes = [
 	{ path: 'clientes',  component: ListClientComponent },	
 	{ path: 'list',  component: ListComponent },
 	{ path: 'edit-user/:_id', component: EditUserComponent, canActivate: [AuthGuard] },
-	{ path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard] },
+	{ path: 'create-user', component: CreateUserComponent},
 	{ path: '*', redirectTo: '/list', pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 
