@@ -59,15 +59,9 @@ export class UserService {
 	}
 
 	createUser(user: User): Promise<any> {
-	 let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
-	 let body = {
-	 	m: 'createUser',
-	 	user: user
-	 };
-	 let data = 'data=' + JSON.stringify(body);
-
-	 return this.http
-	  .post(this.url + '/', data, {headers: headers})
+		let headers = new Headers({'Content-Type': 'application/json','Authorization':'Bearer '+localStorage.getItem('token')});
+		return this.http
+	  .post(this.url + '/', user, {headers: headers})
 	  .toPromise()
 	  .then((response: Response) => {
 	  	let result = response.json();
@@ -102,8 +96,6 @@ export class UserService {
 	}
 	
   private handleError(error: any): Promise<any> {
-  	alert("An error occurred. For detaled information please check the console");
-	console.error('An error occured: ', error);
 	return Promise.reject(error.message || error);
   }
 }

@@ -27,15 +27,21 @@ export class CreateUserComponent implements OnInit {
     }
 
     public addUser() {
-    	this.triggerValidation();
+        this.triggerValidation();
+        this.handleValidationResult(this.validationTrigger);
     }
 
     public handleValidationResult(validationResult: boolean) {
     	if (validationResult) {
+
+            delete this.user._id;
+            
     		this.userService.createUser(this.user)
     			.then(
     				(result) => { this.router.navigate(['/list']) }
     			)
+                this.router.navigate(['/list'])
+                
     	}
     }
 
@@ -44,7 +50,7 @@ export class CreateUserComponent implements OnInit {
     }
 
     private triggerValidation(): void  {
-    	this.validationTrigger = !this.validationTrigger;
+        this.validationTrigger = !this.validationTrigger;
     }
 
 }

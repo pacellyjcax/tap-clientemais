@@ -51,13 +51,6 @@ export class UserFormComponent implements OnInit {
 			this.emailValidationErrorMessage = "Email should not be more than 50 characters";
 		}
 
-		if (!this.user.role.length) {
-			isValid = false;
-			this.roleValidationErrorMessage = "Role should contain at least 1 character";
-		} else if (this.user.role.length > 50) {
-			isValid = false;
-			this.roleValidationErrorMessage = "Role should not be more than 50 characters";
-		}
 	}
 
 	private clearMessages = () => {

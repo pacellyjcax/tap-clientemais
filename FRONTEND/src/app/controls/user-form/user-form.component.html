@@ -25,12 +25,10 @@
 <div class="form-group row">
 	<label for="example-email-input" class="col-2 col-form-label">Role</label>
 	<div class="col-10">
-		<input 	class="form-control"
-				type="text"
-				[ngModel]="user.role"	
-		>
-		<div class="validation-error">
-			{{ roleValidationErrorMessage }}
-		</div>
+		<select	class="form-control"
+				[ngModel]="user.role">
+				<option>Usuário</option>
+				<option>Administrador</option>
+		</select>
 	</div>
 </div>
