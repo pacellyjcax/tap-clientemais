@@ -38,8 +38,8 @@ export class ListClientComponent implements OnInit {
     	})
     }
 
-    public handleClientEdit = () => {
-    	this.router.navigate(['/create-user'])
+    public addNewClient = () => {
+    	this.router.navigate(['/create-client'])
     }
 
     private getClients = (): void => {

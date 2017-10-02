@@ -8,6 +8,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 
 import { AuthGuard } from './guards/auth.guard';
+import { CreateClientComponent } from 'app/create-client/create-client.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
 	{ path: 'list',  component: ListComponent },
 	{ path: 'edit-user/:_id', component: EditUserComponent, canActivate: [AuthGuard] },
 	{ path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard] },
+	{ path: 'create-client', component: CreateClientComponent, canActivate: [AuthGuard] },
 	{ path: '*', redirectTo: '/list', pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 
