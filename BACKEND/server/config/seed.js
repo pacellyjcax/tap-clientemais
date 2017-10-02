@@ -6,7 +6,6 @@
 'use strict';
 
 import User from '../api/user/user.model';
-import Permission from '../api/permission/permission.model';
 import Cliente from '../api/cliente/cliente.model';
 
 const users = [
@@ -15,62 +14,23 @@ const users = [
     role: 'administrador',
     name: 'Pacelly JCAX',
     email: 'p@p',
-    password: '123',
-    permissions: [
-      {
-        name: 'Página Inicial'
-      },{
-        name: 'Alterar Senha Pessoal'
-      },{
-        name: 'Listar Permissões'
-      },{
-        name: 'Cadastrar Permissão'
-      },{
-        name: 'Listar Usuários'
-      },{
-        name: 'Cadastrar Usuário'
-      },{
-        name: 'Editar Usuário'
-      },{
-        name: 'Deletar Usuário'
-      }
-    ]
+    password: '123'
+    
   },{
     provider: 'local',
     role: 'usuario',
     name: 'Nesomar Ramalho',
     email: 'n@n',
     password: '123'
+  },{
+    provider: 'local',
+    role: 'usuario',
+    name: 'Rafael Nilton',
+    email: 'r@r',
+    password: '24forever'
   }
 ];
 
-const permissions = [
-  {
-    name: 'Página Inicial'
-  },{
-    name: 'Alterar Senha Pessoal'
-  },{
-    name: 'Listar Permissões'
-  },{
-    name: 'Cadastrar Permissão'
-  },{
-    name: 'Listar Usuários'
-  },{
-    name: 'Cadastrar Usuário'
-  },{
-    name: 'Editar Usuário'
-  },{
-    name: 'Deletar Usuário'
-  },{
-    name: 'Alterar Permissões do Usuário'
-  },{
-    name: 'Alterar Avatar Pessoal'
-  },{
-    name: 'Deletar Permissão'
-  },{
-    name: 'Editar Permissão'
-  }
-];
 const clientes = [
   {
     name: 'Coca Cola Inc.',
@@ -109,16 +69,6 @@ let popularUsuarios = (users) => {
     });
 }
 
-let popularPermissoes = (permissions) => {
-  Permission.find({}).removeAsync()
-    .then(function() {
-      Permission.createAsync(permissions)
-      .then(function() {
-        console.log('finished populating Permissions');
-      });
-    });
-}
-
 let popularClientes = (clientes) => {
   Cliente.find({}).removeAsync()
     .then(function() {
@@ -130,5 +80,4 @@ let popularClientes = (clientes) => {
 }
 
 popularUsuarios(users);
-popularPermissoes(permissions);
 popularClientes(clientes);
