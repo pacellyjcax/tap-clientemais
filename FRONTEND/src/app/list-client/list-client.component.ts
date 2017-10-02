@@ -5,7 +5,7 @@ import { ClientService } from './../services/client.service';
 
 
 @Component({
-    selector: 'list-client',
+    selector: 'list-clients',
     templateUrl: './list-client.component.html',
     styleUrls: ['./list-client.component.scss']
 })

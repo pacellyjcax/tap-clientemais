@@ -1,3 +1,6 @@
-<p>
-  create-client works!
-</p>
+<app-header [title]="title"></app-header>
+
+<client-form [client]="client" [validationTrigger]="validationTrigger" (onValidationFinished)="handleValidationResult($event)"></client-form>
+
+<button class="btn btn-success add-button" (click)="addClient()">Add Client</button>
+<button class="btn btn-warning back-button" (click)="back()">Back</button>

@@ -1,3 +1,4 @@
+import { ClientService } from './services/client.service';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpModule, Http} from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -36,7 +37,7 @@ import { ClientListComponent } from './controls/client-list/client-list.componen
         CreateClientComponent,
         EditClientComponent,
         ClientFormComponent,
-        ClientListComponent
+        ClientListComponent,
     ],
     imports: [
         BrowserModule,
@@ -47,7 +48,8 @@ import { ClientListComponent } from './controls/client-list/client-list.componen
     providers: [
     	UserService,
         DatePipe,
-        AuthenticationService
+        AuthenticationService,
+        ClientService
     ],
     bootstrap: [AppComponent]
 })
