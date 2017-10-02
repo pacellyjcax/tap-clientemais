@@ -64,12 +64,7 @@ export class UserService {
 	  .post(this.url + '/', user, {headers: headers})
 	  .toPromise()
 	  .then((response: Response) => {
-	  	let result = response.json();
-	  	if (!!result['isSuccess']) {
-	  		return Promise.resolve(result['data']);
-	  	} else {
-	  		return Promise.reject(result)
-	  	}
+	  
 	  })
 	  .catch(this.handleError);
 	}

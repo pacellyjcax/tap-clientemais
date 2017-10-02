@@ -28,19 +28,17 @@ export class CreateClientComponent implements OnInit {
 
   public addClient() {
     this.triggerValidation();
+    this.handleValidationResult(this.validationTrigger);
   }
 
   public handleValidationResult(validationResult: boolean) {
     if (validationResult) {
-      
-                  delete this.client._id;
-                  
-              this.clientService.createClient(this.client)
+            delete this.client._id;
+            this.clientService.createClient(this.client)
                 .then(
                   (result) => { this.router.navigate(['/clientes']) }
                 )
-                      this.router.navigate(['/clientes'])
-                      
+                 this.router.navigate(['/clientes'])      
             }
   }
 
