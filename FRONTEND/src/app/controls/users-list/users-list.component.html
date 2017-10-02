@@ -3,8 +3,7 @@
 		<tr>
 			<th>Name</th>
 			<th>E-mail</th>
-			<th>Role</th>
-			<th>Actions</th>
+			<th>Tipo</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -12,17 +11,6 @@
 			<td>{{ user.name }}</td>
 			<td>{{ user.email }}</td>
 			<td>{{ user.role }}</td>
-			<td>
-				<div class="btn-group">
-					<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Action
-					</button>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="javascript: void(0);" (click)="onEditUserPressed(user._id)"><i class="fa fa-edit"></i> Edit User</a>
-						<a class="dropdown-item" href="javascript: void(0);" (click)="onDeleteUserPressed(user._id)"><i class="fa fa-remove"></i> Delete User</a>
-					</div>
-				</div>
-			</td>
 		</tr>
 	</tbody>
 </table>

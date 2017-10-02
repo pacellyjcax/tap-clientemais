@@ -46,23 +46,13 @@ export class ClientService {
 	}
 
 	createClient(client: Client): Promise<any> {
-	 let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
-	 let body = {
-	 	m: 'createClient',
-	 	client: client
-	 };
-	 let data = 'data=' + JSON.stringify(body);
+	let headers = new Headers({'Content-Type': 'application/json','Authorization':'Bearer '+localStorage.getItem('token')});
 
 	 return this.http
-	  .post(this.url + '/post.php', data, {headers: headers})
+	  .post(this.url, client, {headers: headers})
 	  .toPromise()
 	  .then((response: Response) => {
-	  	let result = response.json();
-	  	if (!!result['isSuccess']) {
-	  		return Promise.resolve(result['data']);
-	  	} else {
-	  		return Promise.reject(result)
-	  	}
+	  
 	  })
 	  .catch(this.handleError);
 	}

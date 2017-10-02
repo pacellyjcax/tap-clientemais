@@ -51,14 +51,8 @@ public validateUser = () => {
     this.emailValidationErrorMessage = "Email should not be more than 50 characters";
   }
 
-  if (!this.client.phoneNumber.length) {
-    isValid = false;
-    this.phoneNumberValidationErrorMessage = "Role should contain at least 1 character";
-  } else if (this.client.phoneNumber.length > 12) {
-    isValid = false;
-    this.phoneNumberValidationErrorMessage = "Phone Number should not be more than 12 characters";
-  }
-}
+ }
+
 
 private clearMessages = () => {
     this.nameValidationErrorMessage = "";

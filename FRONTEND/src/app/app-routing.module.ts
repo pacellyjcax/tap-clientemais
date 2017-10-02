@@ -15,10 +15,10 @@ const routes: Routes = [
 	{ path: 'login',  component: LoginComponent },
 	{ path: 'clientes',  component: ListClientComponent },	
 	{ path: 'list',  component: ListComponent },
-	{ path: 'edit-user/:_id', component: EditUserComponent, canActivate: [AuthGuard] },
-	{ path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard] },
-	{ path: 'create-client', component: CreateClientComponent, canActivate: [AuthGuard] },
-	{ path: '*', redirectTo: '/list', pathMatch: 'full', canActivate: [AuthGuard] }
+	{ path: 'edit-user/:_id', component: EditUserComponent },
+	{ path: 'create-user', component: CreateUserComponent},
+	{ path: 'create-client', component: CreateClientComponent},
+	{ path: '*', redirectTo: '/list', pathMatch: 'full' }
 ];
 
 @NgModule({
